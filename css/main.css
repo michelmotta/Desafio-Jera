@@ -31,6 +31,41 @@ body{
     pointer-events: none;
     color: #aaa;
 }
+
+
+.list-item{
+    background: #fff;
+    padding: 10px;
+}
+.list-item span{
+    text-align: center;
+}
+.list-item-text{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+.list-item-text p{
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.list-item-text-synopsis{
+    font-size: 16px !important;
+    text-align: justify;
+}
+.list-item-movie-image img{
+    max-height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.list-item-button{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer{
+    margin-top: 30px;
+}
 .footer p{
     color: #fff;
     text-align: center;
