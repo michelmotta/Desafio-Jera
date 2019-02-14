@@ -33,6 +33,9 @@ body{
 }
 
 
+.margin-top-50px{
+    margin-top: 50px;
+}
 .list-item{
     background: #fff;
     padding: 10px;
@@ -62,6 +65,17 @@ body{
     margin-top: 20px;
     text-align: center;
 }
+.has-search .form-control {
+    height: 60px;
+}
+.has-search .form-control-feedback{
+    line-height: 61px;
+}
+.pagination{
+    margin-top: 50px;
+}
+
+
 
 .footer{
     margin-top: 30px;
