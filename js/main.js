@@ -5,13 +5,15 @@ Vue.component("loading-div", {
 var app = new Vue({
     el: "#app",
     mounted() {
-        console.log('HTML CARREGADO!!!');
+        this.loadMoviesList();
     },
     data: {
         loadingStatus: false,
         pageTitle: "Desafio Jera - Star Wars"
     },
     methods: {
-
+        loadMoviesList() {
+            console.log('Movies loaded!!');
+        }
     }
 });
