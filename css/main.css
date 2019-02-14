@@ -110,3 +110,7 @@ body{
 .btn-black{
     background: black;
 }
+hr{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
