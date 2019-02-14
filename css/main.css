@@ -31,3 +31,10 @@ body{
     pointer-events: none;
     color: #aaa;
 }
+.footer p{
+    color: #fff;
+    text-align: center;
+}
+.footer i{
+    color: rgb(248, 3, 195);
+}
