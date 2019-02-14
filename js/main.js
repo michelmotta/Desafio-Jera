@@ -8,12 +8,22 @@ var app = new Vue({
         this.loadMoviesList();
     },
     data: {
-        loadingStatus: false,
-        pageTitle: "Desafio Jera - Star Wars"
+        loadingStatus: true,
+        pageTitle: "Desafio Jera - Star Wars",
+        moviesList: [],
     },
     methods: {
         loadMoviesList() {
-            console.log('Movies loaded!!');
-        }
+            axios
+            .get('https://swapi.co/api/films/')
+            .then(response => {
+                this.moviesList = response.data.results;
+                console.log(this.moviesList);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+            .finally(() => this.loadingStatus = false)
+        },
     }
 });
