@@ -1,5 +1,6 @@
-Vue.component("loading-div", {
-    template: "#loading"
+
+Vue.component("movies-list", {
+    template: "#movies"
 });
 
 var app = new Vue({
@@ -8,12 +9,13 @@ var app = new Vue({
         this.loadMoviesList();
     },
     data: {
-        loadingStatus: true,
+        loadingStatus: false,
         pageTitle: "Desafio Jera - Star Wars",
         moviesList: [],
     },
     methods: {
         loadMoviesList() {
+            this.loadingStatus = true;
             axios
             .get('https://swapi.co/api/films/')
             .then(response => {
