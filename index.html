@@ -38,10 +38,10 @@
                                         <i class="fa fa-search h4 text-body"></i>
                                     </div>
                                     <div class="col">
-                                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Pesquise por nomes de filmes do Star">
+                                        <input v-model="searchTerm" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Pesquise por nomes de filmes do Star Wars">
                                     </div>
                                     <div class="col-auto">
-                                        <button class="btn btn-lg btn-success" type="submit">Pesquisar</button>
+                                        <button class="btn btn-lg btn-success" type="submit" @click.stop.prevent="searchMovieByName()">Pesquisar</button>
                                     </div>
                                 </div>
                             </form>
@@ -61,7 +61,7 @@
             </div>
         </div>
         <section>
-        <div class="container-fluid">
+        <div class="container-fluid" v-if="!loadingStatus">
                 <div class="container">
                     <div class="row" v-for="i in Math.ceil(moviesList.length / 3)">
                         <div class="col-md-4 margin-top-50px" v-for="movie in moviesList.slice((i - 1) * 3, i * 3)">
