@@ -52,7 +52,7 @@ var app = new Vue({
                 })
                 .finally(() => this.loadingStatus = false)
             } else {
-                alert("Você precisa digitar algo para pesquisar!");
+                this.loadMoviesList();
             }
             console.log(this.searchTerm);
         }
