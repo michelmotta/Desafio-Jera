@@ -10,7 +10,9 @@ var app = new Vue({
     },
     data: {
         loadingStatus: false,
+        emptySearchResult: false,
         pageTitle: "Desafio Jera - Star Wars",
+        searchTerm: "",
         moviesList: [],
     },
     filters: {
@@ -36,5 +38,23 @@ var app = new Vue({
             })
             .finally(() => this.loadingStatus = false)
         },
+        searchMovieByName() {
+            if(this.searchTerm != ""){
+                this.loadingStatus = true;
+                axios
+                .get('https://swapi.co/api/films/?search=' + this.searchTerm)
+                .then(response => {
+                    this.moviesList = response.data.results;
+                    console.log(this.moviesList);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+                .finally(() => this.loadingStatus = false)
+            } else {
+                alert("Você precisa digitar algo para pesquisar!");
+            }
+            console.log(this.searchTerm);
+        }
     }
 });
