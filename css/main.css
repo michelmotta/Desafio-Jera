@@ -19,7 +19,6 @@ body{
 .has-search .form-control {
     padding-left: 2.375rem;
 }
-
 .has-search .form-control-feedback {
     position: absolute;
     z-index: 2;
@@ -31,8 +30,6 @@ body{
     pointer-events: none;
     color: #aaa;
 }
-
-
 .margin-top-50px{
     margin-top: 50px;
 }
@@ -80,9 +77,6 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
-
-
-
 .footer{
     margin-top: 30px;
 }

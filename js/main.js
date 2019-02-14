@@ -13,6 +13,15 @@ var app = new Vue({
         pageTitle: "Desafio Jera - Star Wars",
         moviesList: [],
     },
+    filters: {
+        formateDate(str) {
+            var data = new Date(str);
+            dia  = data.getDate().toString().padStart(2, '0'),
+            mes  = (data.getMonth()+1).toString().padStart(2, '0'),
+            ano  = data.getFullYear();
+            return dia+"/"+mes+"/"+ano;
+        }
+    },
     methods: {
         loadMoviesList() {
             this.loadingStatus = true;
