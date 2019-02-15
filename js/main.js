@@ -1,8 +1,3 @@
-
-Vue.component("movies-list", {
-    template: "#movies"
-});
-
 var app = new Vue({
     el: "#app",
     mounted() {
@@ -10,7 +5,8 @@ var app = new Vue({
     },
     data: {
         loadingStatus: false,
-        emptySearchResult: false,
+        prevPage: null,
+        nextPage: null,
         pageTitle: "Desafio Jera - Star Wars",
         searchTerm: "",
         moviesList: [],
@@ -31,6 +27,8 @@ var app = new Vue({
             .get('https://swapi.co/api/films/')
             .then(response => {
                 this.moviesList = response.data.results;
+                this.prevPage = response.data.prev;
+                this.nextPage = response.data.nex;
                 console.log(this.moviesList);
             })
             .catch(error => {
@@ -45,6 +43,8 @@ var app = new Vue({
                 .get('https://swapi.co/api/films/?search=' + this.searchTerm)
                 .then(response => {
                     this.moviesList = response.data.results;
+                    this.prevPage = response.data.prev;
+                    this.nextPage = response.data.nex;
                     console.log(this.moviesList);
                 })
                 .catch(error => {
@@ -55,6 +55,23 @@ var app = new Vue({
                 this.loadMoviesList();
             }
             console.log(this.searchTerm);
+        },
+        moviesPageNavigation(pageUrl){
+            if(pageUrl != null){
+                this.loadingStatus = true;
+                axios
+                .get(pageUrl)
+                .then(response => {
+                    this.moviesList = response.data.results;
+                    this.prevPage = response.data.prev;
+                    this.nextPage = response.data.nex;
+                    console.log(this.moviesList);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+                .finally(() => this.loadingStatus = false)
+            }
         }
     }
 });
