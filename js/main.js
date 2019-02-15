@@ -170,7 +170,34 @@ var app = new Vue({
                         console.log(error);
                     });
                 });
-                console.log(this.moviePlanetsList);
+            }
+        },
+        loadMovieSpeciesOnClick(){
+            this.loadMovieSpecies(this.movieItem.speciesUrls);
+        },
+        loadMovieSpecies(movieSpeciesUrls){
+            if(movieSpeciesUrls != null){
+                this.movieSpeciesList = [];
+                movieSpeciesUrls.forEach(movieSpeciesUrl =>{ 
+                    axios
+                    .get(movieSpeciesUrl)
+                    .then(response => {
+  
+                        movieSpecie = {
+                            name: response.data.name,
+                            classification: response.data.classification,
+                            designation: response.data.designation,
+                            average_lifespan: response.data.average_lifespan,
+                            language: response.data.language
+                        };
+
+                        this.movieSpeciesList.push(movieSpecie);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+                });
+                console.log(this.movieSpeciesList);
             }
         }
     }
