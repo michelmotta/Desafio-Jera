@@ -15,7 +15,7 @@ body, .modal-content{
     margin-right: auto;
     max-width: 300px;
     max-height: 200px;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .page-title h1{
     font-family: StarWars;
@@ -39,8 +39,8 @@ body, .modal-content{
     pointer-events: none;
     color: #aaa;
 }
-.margin-top-50px{
-    margin-top: 50px;
+.margin-top-30px{
+    margin-top: 30px;
 }
 .list-item{
     background: #fff;
@@ -152,4 +152,10 @@ hr{
 .close {
     color: #fff !important;
     opacity: 1 !important;
+}
+.card-body {
+    padding: 10px;
+}
+.sort{
+    margin-top: 20px;
 }
