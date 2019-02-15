@@ -16,13 +16,14 @@ var app = new Vue({
         pageTitle: "Desafio Jera - Star Wars",
         searchTerm: "",
         moviesList: [],
+        movieCharacters: [],
         movieItem: {
             title: "",
-            characters: [],
-            planets: [],
-            starships: [],
-            vehicles: [],
-            species: []
+            charactersUrls: [],
+            planetsUrls: [],
+            starshipsUrls: [],
+            vehiclesUrls: [],
+            speciesUrls: []
         }
     },
     filters: {
@@ -92,6 +93,12 @@ var app = new Vue({
                 .get(movieUrl)
                 .then(response => {
                     this.movieItem.title = response.data.title;
+                    this.movieItem.charactersUrls = response.data.characters;
+                    this.movieItem.planetsUrls = response.data.planets;
+                    this.movieItem.starshipsUrls = response.data.starships;
+                    this.movieItem.vehiclesUrls = response.data.vehicles;
+                    this.movieItem.speciesUrls = response.data.species;
+                    this.loadMovieCharacters(this.movieItem.charactersUrls);
                 })
                 .catch(error => {
                     console.log(error);
@@ -99,5 +106,21 @@ var app = new Vue({
                 .finally(() => this.loadingModalStatus = false)
             }
         },
+        loadMovieCharacters(movieCharactersUrls){
+            if(movieCharactersUrls != null){
+                this.movieCharacters = [];
+                movieCharactersUrls.forEach(movieCharactersUrl =>{ 
+                    axios
+                    .get(movieCharactersUrl)
+                    .then(response => {
+                        this.movieCharacters.push(response.data.name);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+                    //.finally(() => this.loadingModalStatus = false)
+                });
+            }
+        }
     }
 });
