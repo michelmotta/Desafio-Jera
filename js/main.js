@@ -197,7 +197,61 @@ var app = new Vue({
                         console.log(error);
                     });
                 });
-                console.log(this.movieSpeciesList);
+            }
+        },
+        loadMovieStarshipsOnClick(){
+            this.loadMovieStarships(this.movieItem.starshipsUrls);
+        },
+        loadMovieStarships(movieStarshipsUrls){
+            if(movieStarshipsUrls != null){
+                this.movieStarshipsList = [];
+                movieStarshipsUrls.forEach(movieStarshipsUrl =>{ 
+                    axios
+                    .get(movieStarshipsUrl)
+                    .then(response => {
+  
+                        movieStarship = {
+                            name: response.data.name,
+                            model: response.data.model,
+                            manufacturer: response.data.manufacturer,
+                            crew: response.data.crew,
+                            starship_class: response.data.starship_class
+                        };
+
+                        this.movieStarshipsList.push(movieStarship);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+                });
+            }
+        },
+        loadMovieVehiclesOnClick(){
+            this.loadMovieVehicles(this.movieItem.vehiclesUrls);
+        },
+        loadMovieVehicles(movieVehiclesUrls){
+            if(movieVehiclesUrls != null){
+                this.movieVehiclesList = [];
+                movieVehiclesUrls.forEach(movieVehiclesUrl =>{ 
+                    axios
+                    .get(movieVehiclesUrl)
+                    .then(response => {
+  
+                        movieVehicle = {
+                            name: response.data.name,
+                            model: response.data.model,
+                            manufacturer: response.data.manufacturer,
+                            crew: response.data.crew,
+                            vehicle_class: response.data.vehicle_class
+                        };
+
+                        this.movieVehiclesList.push(movieVehicle);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+                });
+                console.log(this.movieVehiclesList);
             }
         }
     }
