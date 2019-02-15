@@ -41,7 +41,7 @@
                                         <input v-model="searchTerm" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Pesquise por nomes de filmes do Star Wars">
                                     </div>
                                     <div class="col-auto">
-                                        <button class="btn btn-lg btn-success btn-black" type="submit" @click.stop.prevent="searchMovieByName()">Pesquisar</button>
+                                        <button class="btn btn-lg btn-dark btn-black" type="submit" @click.stop.prevent="searchMovieByName()">Pesquisar</button>
                                     </div>
                                 </div>
                             </form>
@@ -61,7 +61,7 @@
             </div>
         </div>
         <section>
-        <div class="container-fluid" v-if="!loadingStatus">
+            <div class="container-fluid" v-if="!loadingStatus">
                 <div class="container">
                     <div class="row" v-for="i in Math.ceil(moviesList.length / 3)">
                         <div class="col-md-4 margin-top-50px" v-for="movie in moviesList.slice((i - 1) * 3, i * 3)">
@@ -75,7 +75,7 @@
                                 </div>
                                 <hr>
                                 <div class="list-item-text">
-                                    <span class="badge badge-secondary">Ano de lançamento</span>
+                                    <span class="badge badge-secondary">Data de lançamento</span>
                                     <p>{{movie.release_date | formateDate()}}</p>
                                 </div>
                                 <hr>
@@ -89,7 +89,7 @@
                                     <p class="list-item-text-synopsis">{{movie.opening_crawl}}</p>
                                 </div>
                                 <div class="list-item-button">
-                                    <button type="button" class="btn btn-dark">Ver Detalhes</button>
+                                    <button type="button" class="btn btn-dark btn-black">Ver Detalhes</button>
                                 </div>
                             </div>
                         </div>
@@ -105,10 +105,10 @@
                             <nav>
                                 <ul class="pagination pagination-lg justify-content-center">
                                     <li class="page-item">
-                                        <a class="page-link" href="#">Anterior</a>
+                                        <a class="page-link" :href="prevPage">Anterior</a>
                                     </li>
                                     <li class="page-item">
-                                        <a class="page-link" href="#">Próximo</a>
+                                        <a class="page-link" :href="nextPage">Próximo</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -123,40 +123,6 @@
             </div>
         </footer>
     </div>
-    <template id="movies">
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row" v-for="i in Math.ceil(moviesList.length / 3)">
-                    <div class="col-md-4 margin-top-50px" v-for="movie in moviesList.slice((i - 1) * 3, i * 3)">
-                        <div class="list-item">
-                            <div class="list-item-movie-image">
-                                <img src="images/example_image.jpg" class="img-fluid">
-                            </div>
-                            <div class="list-item-text">
-                                <span class="badge badge-secondary">Nome do Filme</span>
-                                <p>Return of the Jedi</p>
-                            </div>
-                            <div class="list-item-text">
-                                <span class="badge badge-secondary">Ano de lançamento</span>
-                                <p>2019</p>
-                            </div>
-                            <div class="list-item-text">
-                                <span class="badge badge-secondary">Diretor</span>
-                                <p>Michel Motta da Silva</p>
-                            </div>
-                            <div class="list-item-text">
-                                <span class="badge badge-secondary">Sinopse</span>
-                                <p class="list-item-text-synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vestibulum, urna id dictum malesuada, augue lacus ornare ante, quis consectetur dolor enim dictum elit. Etiam sollicitudin pellentesque nulla vel lobortis. Sed ac suscipit nisi, a dapibus tortor. Sed vel ultrices augue, quis elementum nibh. Aenean aliquam aliquam nibh nec congue.</p>
-                            </div>
-                            <div class="list-item-button">
-                                <button type="button" class="btn btn-dark">Ver Detalhes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </template>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
