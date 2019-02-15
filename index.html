@@ -113,10 +113,10 @@
                         <div class="col-md-12">
                             <nav>
                                 <ul class="pagination pagination-lg justify-content-center">
-                                    <li class="page-item">
-                                        <a class="page-link" :href="prevPage">Anterior</a>
+                                    <li class="page-item" :class="prevPage == null ? 'disabled':''">
+                                        <a class="page-link"  :href="prevPage">Anterior</a>
                                     </li>
-                                    <li class="page-item">
+                                    <li class="page-item" :class="nextPage == null ? 'disabled':''">
                                         <a class="page-link" :href="nextPage">Próximo</a>
                                     </li>
                                 </ul>
