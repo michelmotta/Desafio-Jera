@@ -16,7 +16,7 @@ var app = new Vue({
         pageTitle: "Desafio Jera - Star Wars",
         searchTerm: "",
         moviesList: [],
-        movieCharacters: [],
+        movieCharactersList: [],
         movieItem: {
             title: "",
             charactersUrls: [],
@@ -108,12 +108,23 @@ var app = new Vue({
         },
         loadMovieCharacters(movieCharactersUrls){
             if(movieCharactersUrls != null){
-                this.movieCharacters = [];
+                this.movieCharactersList = [];
                 movieCharactersUrls.forEach(movieCharactersUrl =>{ 
                     axios
                     .get(movieCharactersUrl)
                     .then(response => {
-                        this.movieCharacters.push(response.data.name);
+  
+                        movieCharacter = {
+                            name: response.data.name,
+                            height: response.data.height,
+                            mass: response.data.mass,
+                            hair_color: response.data.hair_color,
+                            skin_color: response.data.skin_color,
+                            eye_color: response.data.eye_color,
+                            gender: response.data.gender
+                        };
+
+                        this.movieCharactersList.push(movieCharacter);
                     })
                     .catch(error => {
                         console.log(error);
