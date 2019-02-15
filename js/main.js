@@ -17,6 +17,10 @@ var app = new Vue({
         searchTerm: "",
         moviesList: [],
         movieCharactersList: [],
+        moviePlanetsList: [],
+        movieStarshipsList: [],
+        movieVehiclesList: [],
+        movieSpeciesList: [],
         movieItem: {
             title: "",
             charactersUrls: [],
@@ -33,6 +37,13 @@ var app = new Vue({
             mes  = (data.getMonth()+1).toString().padStart(2, '0'),
             ano  = data.getFullYear();
             return dia+"/"+mes+"/"+ano;
+        },
+        formateWaterInfo(str) {
+            if(str == 1){
+                return "Yes";
+            } else {
+                return "No"
+            }
         }
     },
     methods: {
@@ -88,7 +99,6 @@ var app = new Vue({
         loadSingleMovie(movieUrl){
             if(movieUrl != null){
                 this.loadingModalStatus = true;
-                this.movieItem.title = "";
                 axios
                 .get(movieUrl)
                 .then(response => {
@@ -105,6 +115,9 @@ var app = new Vue({
                 })
                 .finally(() => this.loadingModalStatus = false)
             }
+        },
+        loadMovieCharactersOnClick(){
+            this.loadMovieCharacters(this.movieItem.charactersUrls);
         },
         loadMovieCharacters(movieCharactersUrls){
             if(movieCharactersUrls != null){
@@ -129,8 +142,35 @@ var app = new Vue({
                     .catch(error => {
                         console.log(error);
                     });
-                    //.finally(() => this.loadingModalStatus = false)
                 });
+            }
+        },
+        loadMoviePlanetsOnClick(){
+            this.loadMoviePlanets(this.movieItem.planetsUrls);
+        },
+        loadMoviePlanets(moviePlanetsUrls){
+            if(moviePlanetsUrls != null){
+                this.moviePlanetsList = [];
+                moviePlanetsUrls.forEach(moviePlanetsUrl =>{ 
+                    axios
+                    .get(moviePlanetsUrl)
+                    .then(response => {
+  
+                        moviePlanet = {
+                            name: response.data.name,
+                            climate: response.data.climate,
+                            gravity: response.data.gravity,
+                            surface_water: response.data.surface_water,
+                            population: response.data.population
+                        };
+
+                        this.moviePlanetsList.push(moviePlanet);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+                });
+                console.log(this.moviePlanetsList);
             }
         }
     }
