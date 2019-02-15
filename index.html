@@ -115,15 +115,42 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">teste</h5>
+                        <h5 class="modal-title">{{movieItem.title}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         </div>
                         <div class="modal-body">
-                        <p>Modal body text goes here.</p>
                         <div v-if="loadingModalStatus" class="container-fluid">
                             <loading-element></loading-element>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="characters-tab" data-toggle="tab" href="#characters" role="tab" aria-controls="characters" aria-selected="true">Personagens</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="planets-tab" data-toggle="tab" href="#planets" role="tab" aria-controls="planets" aria-selected="false">Planetas</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="species-tab" data-toggle="tab" href="#species" role="tab" aria-controls="species" aria-selected="false">Espécies</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="starships-tab" data-toggle="tab" href="#starships" role="tab" aria-controls="starships" aria-selected="false">Naves</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="vehicles-tab" data-toggle="tab" href="#vehicles" role="tab" aria-controls="vehicles" aria-selected="false">Veículos</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="characters" role="tabpanel" aria-labelledby="characters-tab">1</div>
+                                    <div class="tab-pane fade" id="planets" role="tabpanel" aria-labelledby="planets-tab">2</div>
+                                    <div class="tab-pane fade" id="species" role="tabpanel" aria-labelledby="species-tab">3</div>
+                                    <div class="tab-pane fade" id="starships" role="tabpanel" aria-labelledby="starships-tab">4</div>
+                                    <div class="tab-pane fade" id="vehicles" role="tabpanel" aria-labelledby="vehicles-tab">5</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
