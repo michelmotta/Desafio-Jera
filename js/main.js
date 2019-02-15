@@ -49,6 +49,14 @@ var app = new Vue({
         }
     },
     methods: {
+        onChangeSelect(event) {
+            if(event.target.value == "name"){
+                this.moviesList.sort((a, b) => (a.title > b.title) ? 1 : -1)
+            }
+            if(event.target.value == "date"){
+                this.moviesList.sort((a, b) => (a.release_date > b.release_date) ? 1 : -1)
+            }
+        },
         loadMoviesListOnStart() {
             this.loadingStatus = true;
             axios
