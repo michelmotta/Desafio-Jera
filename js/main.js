@@ -16,7 +16,14 @@ var app = new Vue({
         pageTitle: "Desafio Jera - Star Wars",
         searchTerm: "",
         moviesList: [],
-        movie: null
+        movieItem: {
+            title: "",
+            characters: [],
+            planets: [],
+            starships: [],
+            vehicles: [],
+            species: []
+        }
     },
     filters: {
         formateDate(str) {
@@ -80,11 +87,11 @@ var app = new Vue({
         loadSingleMovie(movieUrl){
             if(movieUrl != null){
                 this.loadingModalStatus = true;
+                this.movieItem.title = "";
                 axios
                 .get(movieUrl)
                 .then(response => {
-                    //this.movie = response.data;
-                    console.log(response);
+                    this.movieItem.title = response.data.title;
                 })
                 .catch(error => {
                     console.log(error);
