@@ -45,6 +45,8 @@ body, .modal-content{
 .list-item{
     background: #fff;
     padding: 10px;
+    box-shadow: 0px 0px 15px #fff;
+    border-radius: 5px;
 }
 .list-item span{
     text-align: center;
