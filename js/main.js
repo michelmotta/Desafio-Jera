@@ -122,7 +122,7 @@ var app = new Vue({
             this.loadMovieCharacters(this.movieItem.charactersUrls);
         },
         loadMovieCharacters(movieCharactersUrls){
-            if(movieCharactersUrls != null){
+            if(movieCharactersUrls != null && movieCharactersUrls != ""){
                 this.loadingModalContentTabStatus = true;
                 this.counter = 0;
                 this.movieCharactersList = [];
@@ -159,7 +159,7 @@ var app = new Vue({
             this.loadMoviePlanets(this.movieItem.planetsUrls);
         },
         loadMoviePlanets(moviePlanetsUrls){
-            if(moviePlanetsUrls != null){
+            if(moviePlanetsUrls != null && moviePlanetsUrls != ""){
                 this.loadingModalContentTabStatus = true;
                 this.counter = 0;
                 this.moviePlanetsList = [];
@@ -194,7 +194,7 @@ var app = new Vue({
             this.loadMovieSpecies(this.movieItem.speciesUrls);
         },
         loadMovieSpecies(movieSpeciesUrls){
-            if(movieSpeciesUrls != null){
+            if(movieSpeciesUrls != null && movieSpeciesUrls != ""){
                 this.loadingModalContentTabStatus = true;
                 this.counter = 0;
                 this.movieSpeciesList = [];
@@ -229,7 +229,7 @@ var app = new Vue({
             this.loadMovieStarships(this.movieItem.starshipsUrls);
         },
         loadMovieStarships(movieStarshipsUrls){
-            if(movieStarshipsUrls != null){
+            if(movieStarshipsUrls != null && movieStarshipsUrls != ""){
                 this.loadingModalContentTabStatus = true;
                 this.counter = 0;
                 this.movieStarshipsList = [];
@@ -264,7 +264,7 @@ var app = new Vue({
             this.loadMovieVehicles(this.movieItem.vehiclesUrls);
         },
         loadMovieVehicles(movieVehiclesUrls){
-            if(movieVehiclesUrls != null){
+            if(movieVehiclesUrls != null && movieVehiclesUrls != ""){
                 this.loadingModalContentTabStatus = true;
                 this.counter = 0;
                 this.movieVehiclesList = [];
@@ -288,6 +288,8 @@ var app = new Vue({
                         console.log(error);
                     })
                     .finally(() => {
+                        console.log(this.counter);
+                        console.log(movieVehiclesUrls.length);
                         if(this.counter == movieVehiclesUrls.length) {
                             this.loadingModalContentTabStatus = false;
                         }

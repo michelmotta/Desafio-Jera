@@ -149,3 +149,7 @@ hr{
 .table-dark{
     background: transparent;
 }
+.close {
+    color: #fff !important;
+    opacity: 1 !important;
+}
