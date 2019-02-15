@@ -2,7 +2,7 @@
     font-family: StarWars;
     src: url(../fonts/Death_Star.otf);
 }
-body{
+body, .modal-content{
     background: #000;
     background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 10px), radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 5px), radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 10px), radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 5px);
     background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
@@ -117,4 +117,30 @@ hr{
 }
 .list-group{
     margin-top: 10px;
+}
+.star-wars-icon img{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.modal-title{
+    font-family: StarWars;
+    color: #fff;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #efff00;
+    background-color: #000;
+    border-color: #dee2e6 #dee2e6 #000;
+}
+.nav-item a{
+    color: #fff;
+}
+.close{
+    opacity: 1;
+    color: #fff;
+}
+.modal-content{
+    border: 2px solid #fff;
 }
