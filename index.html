@@ -52,13 +52,7 @@
             </div>
         </header>
         <div v-if="loadingStatus" class="container-fluid">
-            <div class="container">
-                <div class="col-md-12">
-                    <div class="loading">
-                        <img src="images/loading.gif">
-                    </div>
-                </div>
-            </div>
+            <loading-element></loading-element>
         </div>
         <section>
             <div class="container-fluid" v-if="!loadingStatus">
@@ -89,7 +83,7 @@
                                     <p class="list-item-text-synopsis">{{movie.opening_crawl}}</p>
                                 </div>
                                 <div class="list-item-button">
-                                    <button type="button" class="btn btn-dark btn-black">Ver Detalhes</button>
+                                    <button type="button" class="btn btn-dark btn-black" data-toggle="modal" data-target=".bd-example-modal-lg" @click="loadSingleMovie(movie.url)">Ver Detalhes</button>
                                 </div>
                             </div>
                         </div>
@@ -117,12 +111,39 @@
                 </div>
             </div>
         </section>
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">teste</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        <p>Modal body text goes here.</p>
+                        <div v-if="loadingModalStatus" class="container-fluid">
+                            <loading-element></loading-element>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <footer>
             <div class="footer">
                 <p>Desenvolvido com <i class="fa fa-heart"></i> por Michel Motta da Silva para o Desafio Jera.</p>
             </div>
         </footer>
     </div>
+    <template id="loading">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="loading">
+                    <img src="images/loading.gif">
+                </div>
+            </div>
+        </div>
+    </template>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
