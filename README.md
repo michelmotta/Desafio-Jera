@@ -20,8 +20,8 @@ Como um geek gostaria de ver informações privilegiadas do filme, como lista de
 
 ## Protótipos iniciais do projeto
 
-<img src="https://github.com/michelmotta/Desafio-Jera/blob/master/prototipo/Home.png" width="200" height="400">
-<img src="https://github.com/michelmotta/Desafio-Jera/blob/master/prototipo/Mais%20Detalhes%20(Modal).png" width="200" height="400">
+<img src="https://github.com/michelmotta/Desafio-Jera/blob/master/prototipo/Home.png" width="600" height="400">
+<img src="https://github.com/michelmotta/Desafio-Jera/blob/master/prototipo/Mais%20Detalhes%20(Modal).png" width="500" height="400">
 
 ## Como ver o resultado do projeto?
 
