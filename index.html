@@ -148,7 +148,10 @@
                                         <div class="star-wars-icon">
                                             <img src="images/Master-Joda-icon.png">
                                         </div>
-                                        <table class="table table-bordered table-dark table-hover">
+                                        <div v-if="loadingModalContentTabStatus" class="container-fluid">
+                                            <loading-element></loading-element>
+                                        </div>
+                                        <table v-if="!loadingModalContentTabStatus" class="table table-bordered table-dark table-hover">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Nome</th>
@@ -177,7 +180,10 @@
                                         <div class="star-wars-icon">
                                             <img src="images/Darth-Vader-icon.png">
                                         </div>
-                                        <table class="table table-bordered table-dark table-hover">
+                                        <div v-if="loadingModalContentTabStatus" class="container-fluid">
+                                            <loading-element></loading-element>
+                                        </div>
+                                        <table v-if="!loadingModalContentTabStatus" class="table table-bordered table-dark table-hover">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Nome</th>
@@ -202,7 +208,10 @@
                                         <div class="star-wars-icon">
                                             <img src="images/R2D2-icon.png">
                                         </div>
-                                        <table class="table table-bordered table-dark table-hover">
+                                        <div v-if="loadingModalContentTabStatus" class="container-fluid">
+                                            <loading-element></loading-element>
+                                        </div>
+                                        <table v-if="!loadingModalContentTabStatus" class="table table-bordered table-dark table-hover">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Nome</th>
@@ -227,7 +236,10 @@
                                         <div class="star-wars-icon">
                                             <img src="images/Clone-Trooper-icon.png">
                                         </div>
-                                        <table class="table table-bordered table-dark table-hover">
+                                        <div v-if="loadingModalContentTabStatus" class="container-fluid">
+                                            <loading-element></loading-element>
+                                        </div>
+                                        <table v-if="!loadingModalContentTabStatus" class="table table-bordered table-dark table-hover">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Nome</th>
@@ -252,7 +264,10 @@
                                         <div class="star-wars-icon">
                                             <img src="images/Death-Star-icon.png">
                                         </div>
-                                        <table class="table table-bordered table-dark table-hover">
+                                        <div v-if="loadingModalContentTabStatus" class="container-fluid">
+                                            <loading-element></loading-element>
+                                        </div>
+                                        <table v-if="!loadingModalContentTabStatus" class="table table-bordered table-dark table-hover">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Nome</th>

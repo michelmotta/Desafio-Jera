@@ -10,6 +10,8 @@ var app = new Vue({
     data: {
         loadingStatus: false,
         loadingModalStatus: false,
+        loadingModalContentTabStatus: false,
+        counter: 0,
         prevPage: null,
         nextPage: null,
         movieUrl: null,
@@ -121,6 +123,8 @@ var app = new Vue({
         },
         loadMovieCharacters(movieCharactersUrls){
             if(movieCharactersUrls != null){
+                this.loadingModalContentTabStatus = true;
+                this.counter = 0;
                 this.movieCharactersList = [];
                 movieCharactersUrls.forEach(movieCharactersUrl =>{ 
                     axios
@@ -138,10 +142,16 @@ var app = new Vue({
                         };
 
                         this.movieCharactersList.push(movieCharacter);
+                        this.counter++;
                     })
                     .catch(error => {
                         console.log(error);
-                    });
+                    })
+                    .finally(() => {
+                        if(this.counter == movieCharactersUrls.length) {
+                            this.loadingModalContentTabStatus = false;
+                        }
+                    })
                 });
             }
         },
@@ -150,6 +160,8 @@ var app = new Vue({
         },
         loadMoviePlanets(moviePlanetsUrls){
             if(moviePlanetsUrls != null){
+                this.loadingModalContentTabStatus = true;
+                this.counter = 0;
                 this.moviePlanetsList = [];
                 moviePlanetsUrls.forEach(moviePlanetsUrl =>{ 
                     axios
@@ -165,10 +177,16 @@ var app = new Vue({
                         };
 
                         this.moviePlanetsList.push(moviePlanet);
+                        this.counter++;
                     })
                     .catch(error => {
                         console.log(error);
-                    });
+                    })
+                    .finally(() => {
+                        if(this.counter == moviePlanetsUrls.length) {
+                            this.loadingModalContentTabStatus = false;
+                        }
+                    })
                 });
             }
         },
@@ -177,6 +195,8 @@ var app = new Vue({
         },
         loadMovieSpecies(movieSpeciesUrls){
             if(movieSpeciesUrls != null){
+                this.loadingModalContentTabStatus = true;
+                this.counter = 0;
                 this.movieSpeciesList = [];
                 movieSpeciesUrls.forEach(movieSpeciesUrl =>{ 
                     axios
@@ -192,10 +212,16 @@ var app = new Vue({
                         };
 
                         this.movieSpeciesList.push(movieSpecie);
+                        this.counter++;
                     })
                     .catch(error => {
                         console.log(error);
-                    });
+                    })
+                    .finally(() => {
+                        if(this.counter == movieSpeciesUrls.length) {
+                            this.loadingModalContentTabStatus = false;
+                        }
+                    })
                 });
             }
         },
@@ -204,6 +230,8 @@ var app = new Vue({
         },
         loadMovieStarships(movieStarshipsUrls){
             if(movieStarshipsUrls != null){
+                this.loadingModalContentTabStatus = true;
+                this.counter = 0;
                 this.movieStarshipsList = [];
                 movieStarshipsUrls.forEach(movieStarshipsUrl =>{ 
                     axios
@@ -219,10 +247,16 @@ var app = new Vue({
                         };
 
                         this.movieStarshipsList.push(movieStarship);
+                        this.counter++;
                     })
                     .catch(error => {
                         console.log(error);
-                    });
+                    })
+                    .finally(() => {
+                        if(this.counter == movieStarshipsUrls.length) {
+                            this.loadingModalContentTabStatus = false;
+                        }
+                    })
                 });
             }
         },
@@ -231,6 +265,8 @@ var app = new Vue({
         },
         loadMovieVehicles(movieVehiclesUrls){
             if(movieVehiclesUrls != null){
+                this.loadingModalContentTabStatus = true;
+                this.counter = 0;
                 this.movieVehiclesList = [];
                 movieVehiclesUrls.forEach(movieVehiclesUrl =>{ 
                     axios
@@ -246,12 +282,17 @@ var app = new Vue({
                         };
 
                         this.movieVehiclesList.push(movieVehicle);
+                        this.counter++;
                     })
                     .catch(error => {
                         console.log(error);
-                    });
+                    })
+                    .finally(() => {
+                        if(this.counter == movieVehiclesUrls.length) {
+                            this.loadingModalContentTabStatus = false;
+                        }
+                    })
                 });
-                console.log(this.movieVehiclesList);
             }
         }
     }
