@@ -128,10 +128,10 @@
                             <div class="col-md-12">
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="characters-tab" data-toggle="tab" href="#characters" role="tab" aria-controls="characters" aria-selected="true">Personagens</a>
+                                        <a @click="loadMovieCharactersOnClick()" class="nav-link active" id="characters-tab" data-toggle="tab" href="#characters" role="tab" aria-controls="characters" aria-selected="true">Personagens</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="planets-tab" data-toggle="tab" href="#planets" role="tab" aria-controls="planets" aria-selected="false">Planetas</a>
+                                        <a @click="loadMoviePlanetsOnClick()" class="nav-link" id="planets-tab" data-toggle="tab" href="#planets" role="tab" aria-controls="planets" aria-selected="false">Planetas</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" id="species-tab" data-toggle="tab" href="#species" role="tab" aria-controls="species" aria-selected="false">Espécies</a>
@@ -177,6 +177,26 @@
                                         <div class="star-wars-icon">
                                             <img src="images/Darth-Vader-icon.png">
                                         </div>
+                                        <table class="table table-striped table-dark table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Nome</th>
+                                                    <th scope="col">Clima</th>
+                                                    <th scope="col">Gravidade</th>
+                                                    <th scope="col">Água</th>
+                                                    <th scope="col">População</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="moviePlanet in moviePlanetsList">
+                                                    <th>{{moviePlanet.name}}</th>
+                                                    <td>{{moviePlanet.climate}}</td>
+                                                    <td>{{moviePlanet.gravity}}</td>
+                                                    <td>{{moviePlanet.surface_water | formateWaterInfo()}}</td>
+                                                    <th>{{moviePlanet.population}}</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                     <div class="tab-pane fade" id="species" role="tabpanel" aria-labelledby="species-tab">
                                         <div class="star-wars-icon">
